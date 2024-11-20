@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import SideNav from "./components/SideNav";
 import StateProvider from "./context/Context"
 import Home from "./Pages/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <SideNav />
         <Navbar />
         <Home />
+        <Footer />
       </div>
     </StateProvider>
   );

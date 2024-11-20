@@ -1,11 +1,12 @@
 import React from "react";
-import { FaSignal, FaUserPlus, FaWallet } from "react-icons/fa";
+import { FaArrowUp, FaSignal, FaUserPlus, FaWallet } from "react-icons/fa";
 import { HiUsers } from "react-icons/hi";
 import ReactApexChart from "react-apexcharts";
 import Data from "../data/statistical-chart";
-import { IoTime } from "react-icons/io5";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoCart, IoNotifications, IoTime } from "react-icons/io5";
+import { BsFillUnlockFill, BsThreeDotsVertical } from "react-icons/bs";
 import projectsTableData from "../data/projectsTableData";
+import { IoIosCard, IoMdAddCircle } from "react-icons/io";
 
 const Home = () => {
   const webView = Data.websiteViewData;
@@ -204,7 +205,7 @@ const Home = () => {
                   ({ img, name, members, budget, completion }, index) => (
                     <tbody key={index} className="space-y-12">
                       <tr>
-                        <td className="flex border-b border-gray-300 py-3 px-5 text-left">
+                        <td className="flex border-b border-gray-300 py-3 px-5 text-left items-center space-x-2">
                           <div className="flex">
                             <img src={img} alt="" className="w-9 h-9" />
                           </div>
@@ -236,11 +237,11 @@ const Home = () => {
                                     ? "bg-green-500"
                                     : "bg-blue-500"
                                 } ${
-                                  completion === 40
-                                    ? "w-[40%]"
+                                  completion === 100
+                                    ? "w-full"
                                     : `w-[${completion}%]`
                                 }`}
-                              ></div>
+                              >{completion}</div>
                             </div>
                           </div>
                         </td>
@@ -251,8 +252,65 @@ const Home = () => {
               </table>
             </div>
           </div>
-          <div>
-            
+          <div className="flex flex-col w-full bg-white rounded-xl border border-gray-300">
+                <div className="flex flex-col mt-4 ml-6">
+                  <h2 className="font-bold">Orders Overview</h2>
+                  <p className="flex items-center text-sm text-gray-500 mt-4"><FaArrowUp className="text-green-500 mr-2"/> 24% up in January</p>
+                </div>
+                <div className="flex flex-col mt-6 ml-6">
+                  <div className="flex items-center">
+                    <p className="text-gray-400 mr-6"><IoNotifications size={20} /></p>
+                    <div className="block">
+                      <h5 className="font-semibold">$2400,  Design Changes</h5>
+                      <p className="text-xs text-gray-500">20th Dec 2024</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col mt-6 ml-6">
+                  <div className="flex items-center">
+                    <p className="text-gray-400 mr-6"><IoMdAddCircle size={20} /></p>
+                    <div className="block">
+                      <h5 className="font-semibold">New Orders #3452468</h5>
+                      <p className="text-xs text-gray-500">20th Dec 2024</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col mt-6 ml-6">
+                  <div className="flex items-center">
+                    <p className="text-gray-400 mr-6"><IoIosCard size={20} /></p>
+                    <div className="block">
+                      <h5 className="font-semibold">New Card Added for Order #95465738</h5>
+                      <p className="text-xs text-gray-500">20th Dec 2024</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col mt-6 ml-6">
+                  <div className="flex items-center">
+                    <p className="text-gray-400 mr-6"><IoCart size={20} /></p>
+                    <div className="block">
+                      <h5 className="font-semibold">Make Payments for Orders</h5>
+                      <p className="text-xs text-gray-500">20th Dec 2024</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col mt-6 ml-6">
+                  <div className="flex items-center">
+                    <p className="text-gray-400 mr-6"><BsFillUnlockFill size={20} /></p>
+                    <div className="block">
+                      <h5 className="font-semibold">$2400,  Design Changes</h5>
+                      <p className="text-xs text-gray-500">20th Dec 2024</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col mt-6 ml-6">
+                  <div className="flex items-center">
+                    <p className="text-gray-400 mr-6"><FaWallet size={20} /></p>
+                    <div className="block">
+                      <h5 className="font-semibold">$2400,  Design Changes</h5>
+                      <p className="text-xs text-gray-500">20th Dec 2024</p>
+                    </div>
+                  </div>
+                </div>
           </div>
         </div>
       </div>

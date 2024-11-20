@@ -13,6 +13,7 @@ const StateProvider = ({children}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [openSidenav, setOpenSidenav] = useState(false)
     const [notificationIsOpen, setNotificationIsOpen] = useState(false)
+    const [colorChange, setColorChange] = useState("gray-800")
 
     const handleDashboardConfigurator = () => {
         setIsOpen(prev => !prev)
@@ -24,8 +25,9 @@ const StateProvider = ({children}) => {
     const handleOpenNotification = () => {
         setNotificationIsOpen(prev => !prev)
     }
-
-
+    const handleChangeColor = (color) => {
+        setColorChange(color)
+    }
 
 const value = {
     isOpen,
@@ -33,7 +35,9 @@ const value = {
     openSidenav,
     handleOpenSidenav,
     notificationIsOpen,
-    handleOpenNotification
+    handleOpenNotification,
+    colorChange,
+    handleChangeColor
 }
 return (
     <StateContext.Provider value = {value}>

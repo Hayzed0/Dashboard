@@ -7,7 +7,8 @@ import { RxAvatar } from "react-icons/rx";
 import { manageState } from "../context/Context";
 
 const SideNav = () => {
-  const { openSidenav } = manageState();
+  const { openSidenav, colorChange } = manageState();
+  console.log(colorChange)
   return (
     <aside
       className={` ${
@@ -19,22 +20,22 @@ const SideNav = () => {
       </div>
       <div className="h-full overflow-y-auto px-3 py-4 bg-white dark:bg-black">
         <ul className="space-y-6">
-          <li className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-2 hover:bg-gray-100 dark:hover:bg-gray-500 py-3 rounded-lg active:bg-gray-900 dark:active:bg-gray-800 active:text-white">
+          <button className={`flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:ring-2 focus:ring-${colorChange}`}>
             <ImHome size={20} />
             <span>Dashboard</span>
-          </li>
-          <li className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-2 hover:bg-gray-100 dark:hover:bg-gray-500 py-3 rounded-lg active:bg-gray-900 dark:active:bg-gray-800 active:text-white">
+          </button>
+          <button className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:outline-none focus:bg-gray-900">
             <RxAvatar size={20} />
             <span>Profile</span>
-          </li>
-          <li className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-2 hover:bg-gray-100 dark:hover:bg-gray-500 py-3 rounded-lg active:bg-gray-900 dark:active:bg-gray-800 active:text-white">
+          </button>
+          <button className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:outline-none focus:bg-gray-900">
             <HiTable size={20} />
             <span>Dashboard</span>
-          </li>
-          <li className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-2 hover:bg-gray-100 dark:hover:bg-gray-500 py-3 rounded-lg active:bg-gray-900 dark:active:bg-gray-800 active:text-white">
+          </button>
+          <button className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:outline-none focus:bg-gray-900">
             <IoMdNotifications size={20} />
             <span>Notifications</span>
-          </li>
+          </button>
         </ul>
         <div>
           <div className="flex text-gray-500 dark:text-white font-bold space-x-4 mt-10 mb-2 px-2 text-lg">

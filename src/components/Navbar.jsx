@@ -19,6 +19,7 @@ const Navbar = () => {
     handleOpenSidenav,
     handleOpenNotification,
     notificationIsOpen,
+    handleChangeColor
   } = manageState();
   return (
     <div className=" xl:ml-80 p-4">
@@ -59,7 +60,10 @@ const Navbar = () => {
               </span>
             </div>
             <div className="relative flex">
-              <button onClick={handleOpenNotification} className="flex cursor-pointer rounded-md p-2 hover:bg-gray-200">
+              <button
+                onClick={handleOpenNotification}
+                className="flex cursor-pointer rounded-md p-2 hover:bg-gray-200"
+              >
                 <IoMdNotifications size={22} className="text-gray-500" />
               </button>
               {notificationIsOpen && (
@@ -161,12 +165,24 @@ const Navbar = () => {
                   <div className="flex flex-col mt-16 ml-4 space-y-2">
                     <h3 className="font-bold text-xl">SideNav Colors</h3>
                     <div className="flex space-x-2">
-                      <FaCircle size={22} className="text-gray-200" />
-                      <FaCircle size={22} className="text-gray-900" />
-                      <FaCircle size={22} className="text-green-500" />
-                      <FaCircle size={22} className="text-orange-500" />
-                      <FaCircle size={22} className="text-red-500" />
-                      <FaCircle size={22} className="text-pink-500" />
+                      <button className="focus:ring-2 focus:ring-gray-900 rounded-full" onClick={() => handleChangeColor("gray-300")}>
+                        <FaCircle size={22} className="text-gray-100" onClick={() => handleChangeColor("green")}/>
+                      </button>
+                      <button className="focus:ring-2 focus:ring-gray-200 rounded-full" onClick={() => handleChangeColor("gray-900")}>
+                        <FaCircle size={22} className="text-gray-900" />
+                      </button>
+                      <button className="focus:ring-2 focus:ring-green-200 rounded-full" onClick={() => handleChangeColor("green-500")}>
+                        <FaCircle size={22} className="text-green-500" />
+                      </button>
+                      <button className="focus:ring-2 focus:ring-orange-200 rounded-full" onClick={() => handleChangeColor("orange-500")}>
+                        <FaCircle size={22} className="text-orange-500" />
+                      </button>
+                      <button className="focus:ring-2 focus:ring-red-200 rounded-full" onClick={() => handleChangeColor("red-500")}>
+                        <FaCircle size={22} className="text-red-500" />
+                      </button>
+                      <button className="focus:ring-2 focus:ring-pink-200 rounded-full" onClick={() => handleChangeColor("pink-800")}>
+                        <FaCircle size={22} className="text-pink-500" />
+                      </button>
                     </div>
                   </div>
                   <div className="flex flex-col mt-16 ml-4 space-y-2">
@@ -192,9 +208,9 @@ const Navbar = () => {
                         Navbar Fixed
                       </h3>
                     </div>
-                    <label class="inline-flex items-center cursor-pointer">
-                      <input type="checkbox" value="" class="sr-only peer" />
-                      <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-900 peer-checked:bg-gray-900"></div>
+                    <label className="inline-flex items-center cursor-pointer">
+                      <input type="checkbox" value="" className="sr-only peer" />
+                      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-900 peer-checked:bg-gray-900"></div>
                     </label>
                   </div>
                 </aside>
