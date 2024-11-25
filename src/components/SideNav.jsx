@@ -8,14 +8,14 @@ import { manageState } from "../context/Context";
 import { Link } from "react-router-dom";
 
 const SideNav = () => {
-  const { openSidenav, colorChange } = manageState();
-  const dynamicClass = `flex text-gray-500 dark:text-white font-semibold space-x-4 my-2 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:ring-2 focus:ring-${colorChange}`
+  const { openSidenav, colorChange, theme } = manageState();
+  const dynamicClass = `flex text-gray-500 dark:text-white font-semibold space-x-4 my-2 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg focus:bg-color-${theme}-focus focus:text-color-${theme}-focus`
 
   return (
     <aside
       className={` ${
         openSidenav ? "block" : "hidden"
-      } fixed top-0 left-0 h-screen w-80 z-40 mt-4 ml-2 transition-transform translate-x-0 border border-gray-300 rounded-xl shadow-sm bg-white dark:bg-gray-900 xl:block`}
+      } fixed top-0 left-0 h-screen w-80 z-40 mt-4 ml-2 transition-transform translate-x-0 border border-gray-300 rounded-xl shadow-sm bg-color-${theme} dark:bg-gray-900 xl:block`}
     >
       <div className="flex flex-col w-full items-center mx-auto font-bold mt-8 text-gray-900 dark:text-white">
         <h2>Olawale Azeez Dashboard</h2>

@@ -25,6 +25,8 @@ const Navbar = () => {
     handleChangeColor,
     toggleNavbar,
     navbarToggler,
+    theme,
+    handleThemeChange,
   } = manageState();
  
   return ( 
@@ -171,22 +173,22 @@ const Navbar = () => {
                   <div className="flex flex-col mt-16 ml-4 space-y-2">
                     <h3 className="font-bold text-xl">SideNav Colors</h3>
                     <div className="flex space-x-2">
-                      <button className="focus:ring-2 focus:ring-gray-900 rounded-full" onClick={() => handleChangeColor("gray-300")}>
-                        <FaCircle size={22} className="text-gray-100" onClick={() => handleChangeColor("green")}/>
+                      <button className="focus:ring-2 focus:ring-gray-900 rounded-full" onClick={() => handleThemeChange("theme1")}>
+                        <FaCircle size={22} className="text-gray-100"/>
                       </button>
-                      <button className="focus:ring-2 focus:ring-gray-200 rounded-full" onClick={() => handleChangeColor("gray-900")}>
+                      <button className="focus:ring-2 focus:ring-gray-200 rounded-full" onClick={() => handleThemeChange("theme2")}>
                         <FaCircle size={22} className="text-gray-900" />
                       </button>
-                      <button className="focus:ring-2 focus:ring-green-200 rounded-full" onClick={() => handleChangeColor("green-500")}>
+                      <button className="focus:ring-2 focus:ring-green-200 rounded-full" onClick={() => handleThemeChange("theme3")}>
                         <FaCircle size={22} className="text-green-500" />
                       </button>
-                      <button className="focus:ring-2 focus:ring-orange-200 rounded-full" onClick={() => handleChangeColor("orange-500")}>
+                      <button className="focus:ring-2 focus:ring-orange-200 rounded-full" onClick={() => handleThemeChange("theme4")}>
                         <FaCircle size={22} className="text-orange-500" />
                       </button>
-                      <button className="focus:ring-2 focus:ring-red-200 rounded-full" onClick={() => handleChangeColor("red-500")}>
+                      <button className="focus:ring-2 focus:ring-red-200 rounded-full" onClick={() => handleThemeChange("theme5")}>
                         <FaCircle size={22} className="text-red-500" />
                       </button>
-                      <button className="focus:ring-2 focus:ring-pink-200 rounded-full" onClick={() => handleChangeColor("pink-800")}>
+                      <button className="focus:ring-2 focus:ring-pink-200 rounded-full" onClick={() => handleThemeChange("theme6")}>
                         <FaCircle size={22} className="text-pink-500" />
                       </button>
                     </div>
@@ -197,13 +199,13 @@ const Navbar = () => {
                       Choose between 3 different SideNav types
                     </p>
                     <div className="flex items-start space-x-3">
-                      <button className="px-4 py-2 font-semibold text-lg focus:bg-gray-900 focus:text-white bg-transparent border items-center border-gray-900 active:bg-gray-900 rounded-lg active:text-white hover:bg-gray-900 hover:text-white">
+                      <button className="px-4 py-2 font-semibold text-lg focus:bg-gray-900 focus:text-white bg-transparent border items-center border-gray-900 active:bg-gray-900 rounded-lg active:text-white hover:bg-gray-900 hover:text-white" onClick={()=>handleThemeChange("theme1")}>
                         Dark
                       </button>
                       <button className="px-4 py-2 font-semibold text-lg focus:bg-gray-900 focus:text-white bg-transparent border items-center border-gray-900 active:bg-gray-900 rounded-lg active:text-white hover:bg-gray-900 hover:text-white">
                         Transparent
                       </button>
-                      <button className="px-4 py-2 font-semibold text-lg  focus:bg-gray-900 focus:text-white bg-transparent border items-center border-gray-900 active:bg-gray-900 rounded-lg active:text-white hover:bg-gray-900 hover:text-white">
+                      <button className="px-4 py-2 font-semibold text-lg  focus:bg-gray-900 focus:text-white bg-transparent border items-center border-gray-900 active:bg-gray-900 rounded-lg active:text-white hover:bg-gray-900 hover:text-white" onClick={()=>handleThemeChange("theme2")}>
                         white
                       </button>
                     </div>
