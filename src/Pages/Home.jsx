@@ -8,10 +8,14 @@ import { BsFillUnlockFill, BsThreeDotsVertical } from "react-icons/bs";
 import projectsTableData from "../data/projectsTableData";
 import { IoIosCard, IoMdAddCircle } from "react-icons/io";
 
+
+
 const Home = () => {
   const webView = Data.websiteViewData;
   const dailySales = Data.dailySalesData;
   const completedTask = Data.completedTaskData;
+ 
+
 
   return (
     <div className=" xl:ml-80 p-4 mt-6">
@@ -207,7 +211,7 @@ const Home = () => {
                       <tr>
                         <td className="flex border-b border-gray-300 py-3 px-5 text-left items-center space-x-2">
                           <div className="flex">
-                            <img src={img} alt="" className="w-9 h-9" />
+                            <img src={img} alt={name} className="w-9 h-9" />
                           </div>
                           <h2 className="font-bold">{name}</h2>
                         </td>

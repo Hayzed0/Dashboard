@@ -4,16 +4,17 @@ import SideNav from "./components/SideNav";
 import StateProvider from "./context/Context"
 import Home from "./Pages/Home";
 import Footer from "./components/Footer";
+import { Outlet, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <StateProvider>
-      <div className="bg-slate-50">
+      <main className="bg-slate-50">
         <SideNav />
         <Navbar />
-        <Home />
+        <Outlet />
         <Footer />
-      </div>
+      </main>
     </StateProvider>
   );
 };

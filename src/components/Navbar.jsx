@@ -12,17 +12,23 @@ import { FaCircle, FaRegCircle } from "react-icons/fa";
 import { manageState } from "../context/Context";
 import Team2 from "../../src/img/team-2.jpeg";
 
+
+
 const Navbar = () => {
+
   const {
     isOpen,
     handleDashboardConfigurator,
     handleOpenSidenav,
     handleOpenNotification,
     notificationIsOpen,
-    handleChangeColor
+    handleChangeColor,
+    toggleNavbar,
+    navbarToggler,
   } = manageState();
-  return (
-    <div className=" xl:ml-80 p-4">
+ 
+  return ( 
+    <div className={`xl:ml-80 p-4 ${navbarToggler ? "rounded-3xl border bg-white shadow-sm mt-12 mx-4": "rounded-none shadow-none border-0 mt-0 mx-0"}`}>
       <div className="flex flex-col-reverse justify-between md:flex-row md:items-center">
         <div className="flex flex-col items-start md:items-center justify-start space-y-4">
           <div className="flex flex-col capitalize">
@@ -147,7 +153,7 @@ const Navbar = () => {
                 <IoMdSettings size={22} className="text-gray-500" />
               </button>
               {isOpen && (
-                <aside className="fixed top-0 right-0 h-screen w-96 z-40 mr-0 transition-transform cursor-pointer translate-x-0 ease-in-out duration-300 border border-gray-300 shadow-sm bg-white dark:bg-gray-900 block">
+                <aside className={`fixed top-0 right-0 h-screen w-96 z-40 mr-0 transition-transform cursor-pointer duration-300 border border-gray-300 shadow-sm bg-white dark:bg-gray-900 block ${isOpen ? "translate-x-0" : "translate-x-96"}`}>
                   <div className="flex flex-row items-center  mt-4 justify-between">
                     <div className="flex flex-col items-start ml-4 mt-4">
                       <h2 className="text-xl font-bold">
@@ -208,8 +214,8 @@ const Navbar = () => {
                         Navbar Fixed
                       </h3>
                     </div>
-                    <label className="inline-flex items-center cursor-pointer">
-                      <input type="checkbox" value="" className="sr-only peer" />
+                    <label  className="inline-flex items-center cursor-pointer">
+                      <input type="checkbox" value="" className="sr-only peer"  onClick={toggleNavbar}/>
                       <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-900 peer-checked:bg-gray-900"></div>
                     </label>
                   </div>

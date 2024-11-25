@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 
 
@@ -14,6 +14,8 @@ const StateProvider = ({children}) => {
     const [openSidenav, setOpenSidenav] = useState(false)
     const [notificationIsOpen, setNotificationIsOpen] = useState(false)
     const [colorChange, setColorChange] = useState("gray-800")
+    const [navbarToggler, setNavbarToggler] = useState(false)
+   
 
     const handleDashboardConfigurator = () => {
         setIsOpen(prev => !prev)
@@ -28,6 +30,10 @@ const StateProvider = ({children}) => {
     const handleChangeColor = (color) => {
         setColorChange(color)
     }
+    const toggleNavbar = () => {
+        setNavbarToggler(prev => !prev)
+    }
+   
 
 const value = {
     isOpen,
@@ -37,7 +43,9 @@ const value = {
     notificationIsOpen,
     handleOpenNotification,
     colorChange,
-    handleChangeColor
+    handleChangeColor,
+    toggleNavbar,
+    navbarToggler,
 }
 return (
     <StateContext.Provider value = {value}>

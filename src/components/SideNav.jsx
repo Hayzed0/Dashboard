@@ -5,10 +5,12 @@ import { ImHome } from "react-icons/im";
 import { IoMdNotifications } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
 import { manageState } from "../context/Context";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   const { openSidenav, colorChange } = manageState();
-  console.log(colorChange)
+  const dynamicClass = `flex text-gray-500 dark:text-white font-semibold space-x-4 my-2 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:ring-2 focus:ring-${colorChange}`
+
   return (
     <aside
       className={` ${
@@ -19,23 +21,23 @@ const SideNav = () => {
         <h2>Olawale Azeez Dashboard</h2>
       </div>
       <div className="h-full overflow-y-auto px-3 py-4 bg-white dark:bg-black">
-        <ul className="space-y-6">
-          <button className={`flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:ring-2 focus:ring-${colorChange}`}>
+        <ul className="space-y-2">
+          <Link to="/" className={dynamicClass}>
             <ImHome size={20} />
             <span>Dashboard</span>
-          </button>
-          <button className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:outline-none focus:bg-gray-900">
+          </Link>
+          <Link to="/profile" className={dynamicClass}>
             <RxAvatar size={20} />
             <span>Profile</span>
-          </button>
-          <button className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:outline-none focus:bg-gray-900">
+          </Link>
+          <Link to="/table" className={dynamicClass}>
             <HiTable size={20} />
-            <span>Dashboard</span>
-          </button>
-          <button className="flex text-gray-500 dark:text-white font-semibold space-x-4 my-4 px-6 hover:bg-gray-100 w-full dark:hover:bg-gray-500 py-3 rounded-lg  dark:active:bg-gray-800 active:text-white focus:outline-none focus:bg-gray-900">
+            <span>Table</span>
+          </Link>
+          <Link to="/notifications" className={dynamicClass}>
             <IoMdNotifications size={20} />
             <span>Notifications</span>
-          </button>
+          </Link>
         </ul>
         <div>
           <div className="flex text-gray-500 dark:text-white font-bold space-x-4 mt-10 mb-2 px-2 text-lg">
