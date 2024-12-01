@@ -13,9 +13,9 @@ const StateProvider = ({children}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [openSidenav, setOpenSidenav] = useState(false)
     const [notificationIsOpen, setNotificationIsOpen] = useState(false)
-    const [colorChange, setColorChange] = useState("gray-800")
     const [navbarToggler, setNavbarToggler] = useState(false)
     const [theme, setTheme] = useState("theme1")
+    const [bgColor, setBgColor] = useState("white")
    
 
     const handleDashboardConfigurator = () => {
@@ -30,19 +30,23 @@ const StateProvider = ({children}) => {
     }
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") || "theme1"
-        setTheme(savedTheme)
-    }, [])
+        const savedTheme = localStorage.getItem("theme")
+        if (savedTheme) {
+            setTheme(savedTheme)
+        }
+        
+    }, [theme])
 
-    const handleChangeColor = (color) => {
-        setColorChange(color)
-    }
+  
     const handleThemeChange = (newTheme) => {
         setTheme(newTheme)
         localStorage.setItem("theme", newTheme)
     }
     const toggleNavbar = () => {
         setNavbarToggler(prev => !prev)
+    }
+    const handleBgColor = (color) => {
+        setBgColor(color)
     }
    
 
@@ -53,12 +57,12 @@ const value = {
     handleOpenSidenav,
     notificationIsOpen,
     handleOpenNotification,
-    colorChange,
-    handleChangeColor,
     toggleNavbar,
     navbarToggler,
     theme, 
-    handleThemeChange
+    handleThemeChange,
+    bgColor,
+    handleBgColor
 }
 return (
     <StateContext.Provider value = {value}>
